@@ -136,66 +136,65 @@ mysqli_close($con);
 <!DOCTYPE html>
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <head>
-  <title>Sign Up form</title>
-  <link rel="stylesheet" type="text/css" href="css/signup.css">
+    <title>Sign Up form</title>
+    <link rel="stylesheet" type="text/css" href="signup.css">
 </head>
-<header>
-<div class="header">
-<?php 
-include "header.php" ;?>
-  </div>  
-      <script>
-          function myFunction() {
+
+<body>
+    <div class="header">
+        <div class="logo">
+            <a href="index.html"><img src="https://res.cloudinary.com/enema/image/upload/v1569433441/Ariadne_Class_pnlixb.png" style="width: 110px;" alt="logo">
+            </a>
+        </div>
+        <div class="topnav" id="myTopnav">
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()"><img src="https://res.cloudinary.com/siyfa/image/upload/v1568922461/ovqrbsa6t7nhghflejve.png" style="width: 30px;">
+            </a>
+            <a href="Login.html">Login</a>
+            <a href="#">Contact Us</a>
+            <a href="#">FAQ</a>
+            <a href="#">Courses</a>
+            <a href="about-us.html">How it works</a>
+            <a href="class.html">Create Class</a>
+            <a href="#">Home</a>
+        </div>
+    </div>
+    <script>
+        function myFunction() {
             var x = document.getElementById("myTopnav");
             if (x.className === "topnav") {
-              x.className += " responsive";
+                x.className += " responsive";
             } else {
-              x.className = "topnav";
+                x.className = "topnav";
             }
-          }
-        </script>
-</header>
-<body>
-<form action="" method="post">
-  <div class="imgcontainer">
-    <img src="https://res.cloudinary.com/enema/image/upload/v1569433441/Ariadne_Class_pnlixb.png" alt="Avatar" class="avatar" height="100" width="50">
-  </div>
-  <div class="signup_errors">
-          <?php
-             function msg_toggle($sess_name){
-                if(isset($_SESSION[$sess_name])){
-                    echo $_SESSION[$sess_name];
-                    unset($_SESSION[$sess_name]);
-                    return 1;
-                }
-             }
-             if(msg_toggle('empty_fullname')) echo "</br>";
-             if(msg_toggle('empty_username')) echo "</br>";
-             if(msg_toggle('empty_email')) echo "</br>";
-             if(msg_toggle('incorrect_email')) echo "</br>";
-             if(msg_toggle('blank_password')) echo "</br>";
-             if(msg_toggle('short_password')) echo "</br>";
-             if(msg_toggle('long_password')) echo "</br>";
-             if(msg_toggle('invalid_password')) echo "</br>";
-             if(msg_toggle('password_mismatch')) echo "</br>";
-             if(msg_toggle('emailerr')) echo "</br>";
-          ?>
-      </div>
-  <div class="container">
-    <!-- <label for="fullname"><b>Full name</b></label> -->
-<input type="text" name="fullname" id="fullname" placeholder="Fullname" value="<?php msg_toggle('fullname') ?>" autocomplete="off" class="box"/><br /><br />
-    <!-- <label for="username"><b>Username</b></label> -->
-<input type="text" name="username" id="username" placeholder="Username" value="<?php msg_toggle('username')?>" autocomplete="off" class="box"/><br /><br />
-<!-- <label for="email"><b>Email</b></label> -->
-<input type="text" name="email" id="email" placeholder="Email Address" value="<?php msg_toggle('email') ?>" autocomplete="off" class="box"/><br /><br />
-    <!-- <label for="password"><b>Password</b></label> -->
-<input type="password" name="password" id="password" placeholder="Password" class="box" /><br/><br />
-<input type="password" name="password_confirm" id="password_confirm" placeholder="Confirm Password" class="box" /><br/><br />
-<!--     <label for="psw"><b>Repeat Password</b></label>
-    <input type="password" placeholder="Repeat password"> -->
-    <div class="coursegroup">
-<!--     <select name="subjects" class="subjects" required>
+        }
+    </script>
+    </header>
+
+    <body>
+        <div>
+            <h2>Welcome to Ariadne Class, <br>Enrol today and enjoy the definition of online education.</h2>
+        </div>
+        <form action="action_page.php" method="post">
+            <div class="imgcontainer">
+                <img src="https://res.cloudinary.com/enema/image/upload/v1569433441/Ariadne_Class_pnlixb.png" style="width: 110px;" alt="logo">
+                </a>" alt="Avatar" class="avatar" height="100" width="50">
+            </div>
+
+            <div class="container">
+                <label for="FullName"><b>Full name</b></label>
+                <input type="text" placeholder="Enter full name" name="FullName" required>
+
+                <label for="uname"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="uname" required>
+
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+                <label for="psw"><b>Repeat Password</b></label>
+                <input type="password" placeholder="Repeat password">
+                <div class="coursegroup">
+                    <select name="subjects" class="subjects" required>
             <option value="">--Please choose a class--</option>
             <option value="Web Development">Web Development</option>
             <option value="Data Science">Data Science</option>
@@ -206,22 +205,23 @@ include "header.php" ;?>
             <option value="RedHat Linux">RedHat Linux</option>
             <option value="Digital Marketing">Digital Marketing</option>
             <option value="Microsoft">Microsoft System Administration</option>
-          </select> -->
+          </select>
 
-    <button type="submit " name='register' value="Register" class='submit'>Sign Up</button>
-    <label>
-      <input type="checkbox" checked="checked" name="remember"> Remember me
-    </label>
-  </div>
+                    <button type="submit">Sign Up</button>
+                </div>
 
-  <div class="container" style="background-color:#f1f1f1">
-    <button type="button" class="cancelbtn">Cancel</button>
-    <span class="psw">Forgot <a href="#">password?</a></span>
-  </div></div></form>
-<section>
-  <footer>
-    <img src="https://res.cloudinary.com/enema/image/upload/v1569508194/screencapture-file-C-Users-pc-Desktop-TEAM-ARIADNE-HOMEPAGE-homepage-html-2019-09-25-21_51_33_vqmtxf.png" width="100%">
-  </footer>
-</section>
-</body>
+                <div class="container" style="background-color:#f1f1f1">
+                    <button type="button" class="cancelbtn">Cancel</button>
+                    <span class="psw"><a href="#">Forgot password?</a></span>
+                </div>
+            </div>
+        </form>
+
+        <section>
+            <footer>
+                <img src="https://res.cloudinary.com/enema/image/upload/v1569508194/screencapture-file-C-Users-pc-Desktop-TEAM-ARIADNE-HOMEPAGE-homepage-html-2019-09-25-21_51_33_vqmtxf.png" width="100%">
+            </footer>
+        </section>
+    </body>
+
 </html>
